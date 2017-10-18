@@ -1,0 +1,8 @@
+
+*.user
+*.user.*
+qtaria.pro.user
+build-qtaria-Desktop-Debug/
+src/qtaria.pro.user
+src/*.user
+src/*.user.*
