@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/QtAria-text-logo.svg</file>
+        <file>icons/QtAria-square-logo.svg</file>
+        <file>icons/play-logo.svg</file>
+        <file>icons/pause-logo.svg</file>
+        <file>icons/delete-logo.svg</file>
+        <file>icons/close-logo.svg</file>
+        <file>icons/cancel-logo.svg</file>
+        <file>icons/add-logo.svg</file>
+    </qresource>
+</RCC>

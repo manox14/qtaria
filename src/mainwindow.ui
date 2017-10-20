@@ -65,7 +65,6 @@
    <property name="floatable">
     <bool>true</bool>
    </property>
-
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -116,6 +115,10 @@
    </property>
   </action>
   <action name="actionResume">
+   <property name="icon">
+    <iconset resource="icons-pack.qrc">
+     <normaloff>:/icons/icons/play-logo.svg</normaloff>:/icons/icons/play-logo.svg</iconset>
+   </property>
    <property name="text">
     <string>Resume</string>
    </property>
@@ -124,11 +127,19 @@
    </property>
   </action>
   <action name="actionPause">
+   <property name="icon">
+    <iconset resource="icons-pack.qrc">
+     <normaloff>:/icons/icons/pause-logo.svg</normaloff>:/icons/icons/pause-logo.svg</iconset>
+   </property>
    <property name="text">
     <string>Pause</string>
    </property>
   </action>
   <action name="actionAddNew">
+   <property name="icon">
+    <iconset resource="icons-pack.qrc">
+     <normaloff>:/icons/icons/add-logo.svg</normaloff>:/icons/icons/add-logo.svg</iconset>
+   </property>
    <property name="text">
     <string>Add New</string>
    </property>
@@ -165,6 +176,10 @@
    </property>
   </action>
   <action name="actionDelete">
+   <property name="icon">
+    <iconset resource="icons-pack.qrc">
+     <normaloff>:/icons/icons/delete-logo.svg</normaloff>:/icons/icons/delete-logo.svg</iconset>
+   </property>
    <property name="text">
     <string>Delete</string>
    </property>
@@ -177,7 +192,9 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icons-pack.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>actionExit</sender>
