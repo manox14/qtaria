@@ -32,3 +32,6 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     addnewdialog.ui
+
+RESOURCES += \
+    icon-pack.qrc
