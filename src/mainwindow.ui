@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Qtaria - A QT GUI for Aria2</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icon-pack.qrc">
+    <normaloff>:/icons/icons/QtAria-square-logo.svg</normaloff>:/icons/icons/QtAria-square-logo.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <property name="enabled">
     <bool>true</bool>
@@ -116,7 +120,7 @@
   </action>
   <action name="actionResume">
    <property name="icon">
-    <iconset resource="icons-pack.qrc">
+    <iconset resource="icon-pack.qrc">
      <normaloff>:/icons/icons/play-logo.svg</normaloff>:/icons/icons/play-logo.svg</iconset>
    </property>
    <property name="text">
@@ -128,7 +132,7 @@
   </action>
   <action name="actionPause">
    <property name="icon">
-    <iconset resource="icons-pack.qrc">
+    <iconset resource="icon-pack.qrc">
      <normaloff>:/icons/icons/pause-logo.svg</normaloff>:/icons/icons/pause-logo.svg</iconset>
    </property>
    <property name="text">
@@ -137,7 +141,7 @@
   </action>
   <action name="actionAddNew">
    <property name="icon">
-    <iconset resource="icons-pack.qrc">
+    <iconset resource="icon-pack.qrc">
      <normaloff>:/icons/icons/add-logo.svg</normaloff>:/icons/icons/add-logo.svg</iconset>
    </property>
    <property name="text">
@@ -177,7 +181,7 @@
   </action>
   <action name="actionDelete">
    <property name="icon">
-    <iconset resource="icons-pack.qrc">
+    <iconset resource="icon-pack.qrc">
      <normaloff>:/icons/icons/delete-logo.svg</normaloff>:/icons/icons/delete-logo.svg</iconset>
    </property>
    <property name="text">
@@ -193,7 +197,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="icons-pack.qrc"/>
+  <include location="icon-pack.qrc"/>
  </resources>
  <connections>
   <connection>
