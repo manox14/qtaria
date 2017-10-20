@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg3653"
+   viewBox="0 0 64.000001 64.000001"
+   height="64"
+   width="64">
+  <defs
+     id="defs3655" />
+  <metadata
+     id="metadata3658">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-988.36216)"
+     id="layer1">
+    <g
+       id="g3602"
+       transform="matrix(0.17110933,0,0,0.17110933,-243.2733,877.05812)">
+      <path
+         style="fill:#00acc0"
+         id="path3604"
+         d="m 1791,717.5 0,238.5 c 0,33.5 -27.2,60.8 -60.8,60.8 l -238.5,0 c -15.8,0 -30.2,-6 -41,-16 C 1438.6,989.7 1431,973.7 1431,956 l 0,-238.5 c 0,-33.6 27.2,-60.8 60.8,-60.8 l 238.5,0 c 15,0 28.7,5.4 39.3,14.4 13.1,11.2 21.4,27.8 21.4,46.4 z"
+         class="st1" />
+      <g
+         id="g3606">
+        <path
+           style="fill:#ffffff"
+           id="path3608"
+           d="m 1551.8,954.1 -19.2,0 -2.7,-14.2 -18.9,0 -6.3,14.2 -19.2,0 34.6,-70.8 16.3,0 15.4,70.8 z m -21.8,-36.4 -4.3,-14.4 -0.7,0 -17,33.4 22,-19 z"
+           class="st3" />
+        <path
+           style="fill:#ffffff"
+           id="path3610"
+           d="m 1583.9,931.6 -3.2,0 -3.1,22.5 -18.1,0 9.9,-70.8 28.3,0 c 14.6,0 25,7.8 23,24.4 -1.8,13.1 -7.4,17.5 -17.1,22.1 l 17,24.3 -22.3,0 -14.4,-22.5 z m 9.5,-15.4 c 5.5,0 8.7,-4.1 9.2,-8.2 0.5,-4.3 -1.6,-8 -6.9,-8 l -10.5,0 -2.3,16.2 10.5,0 z"
+           class="st3" />
+        <path
+           style="fill:#ffffff"
+           id="path3612"
+           d="m 1644.9,954.1 -17.9,0 9.9,-70.8 17.9,0 -9.9,70.8 z"
+           class="st3" />
+        <path
+           style="fill:#ffffff"
+           id="path3614"
+           d="m 1719.3,954.1 -19.2,0 -2.7,-14.2 -18.9,0 -6.3,14.2 -19.2,0 34.6,-70.8 16.3,0 15.4,70.8 z m -18.3,-36.4 -7.7,-14.4 -0.7,0 -18.6,32.4 27,-18 z"
+           class="st3" />
+      </g>
+      <text
+         y="844.25964"
+         x="1490.803"
+         style="font-size:164.98370361px;font-family:UniSansHeavyItalicCAPS;fill:#ffffff"
+         id="text3616"
+         class="st3 st6 st7">QT</text>
+    </g>
+  </g>
+</svg>
