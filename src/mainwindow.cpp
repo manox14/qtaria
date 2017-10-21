@@ -15,5 +15,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionAddNew_triggered()
 {
-
+    newDialog = new addNewDialog;
+    newDialog->show();
 }
