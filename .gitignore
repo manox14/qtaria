@@ -6,3 +6,4 @@ build-qtaria-Desktop-Debug/
 src/qtaria.pro.user
 src/*.user
 src/*.user.*
+src/*.autosave
