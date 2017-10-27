@@ -5,6 +5,7 @@
 #include "addnewdialog.h"
 #include <QUrl>
 #include <QDebug>
+#include <aria2/aria2.h>
 
 
 namespace Ui {
@@ -25,6 +26,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     addNewDialog *newDialog;
+    aria2::Session* session;
 
 };
 
