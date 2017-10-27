@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>372</height>
+    <width>538</width>
+    <height>227</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -88,6 +88,9 @@
     </item>
    </layout>
   </widget>
+  <zorder>groupBox</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <resources/>
  <connections/>

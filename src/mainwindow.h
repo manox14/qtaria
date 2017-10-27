@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "addnewdialog.h"
-#include <QtWebSockets/QtWebSockets>
 #include <QUrl>
 #include <QDebug>
 
@@ -22,15 +21,10 @@ public:
 
 private slots:
     void on_actionAddNew_triggered();
-    void onConnected();
-    void onEventRecived(QString event);
 
 private:
     Ui::MainWindow *ui;
     addNewDialog *newDialog;
-    QWebSocket myconnection;
-    //bool connected;
-    //QString address = "wss://echo.websocket.org";
 
 };
 
