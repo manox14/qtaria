@@ -6,6 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //connected = false;
+    //setup websocket
+    connect(&myconnection,&QWebSocket::connected,this,&MainWindow::onConnected);
+    myconnection.open(QUrl(QStringLiteral("wss://echo.websocket.org")));
+    qDebug("DEBUG:1");
+
 }
 
 MainWindow::~MainWindow()
@@ -17,4 +23,17 @@ void MainWindow::on_actionAddNew_triggered()
 {
     newDialog = new addNewDialog;
     newDialog->show();
+}
+
+void MainWindow::onConnected() {
+    qDebug("connected");
+    connect(&myconnection, &QWebSocket::textMessageReceived,
+                this, &MainWindow::onEventRecived);
+    myconnection.sendTextMessage(QStringLiteral("Hello, world!"));
+
+}
+
+void MainWindow::onEventRecived(QString event) {
+    qDebug(event.toLatin1());
+
 }
