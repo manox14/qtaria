@@ -29,7 +29,7 @@ private:
     Ui::MainWindow *ui;
     addNewDialog *newDialog;
     QWebSocket myconnection;
-    bool connected;
+    //bool connected;
     //QString address = "wss://echo.websocket.org";
 
 };
