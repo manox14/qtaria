@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //connected = false;
     //setup websocket
     connect(&myconnection,&QWebSocket::connected,this,&MainWindow::onConnected);
-    myconnection.open(QUrl(QStringLiteral("wss://echo.websocket.org")));
+    myconnection.open(QUrl(QStringLiteral("ws://localhost:6800/jsonrpc")));
     qDebug("DEBUG:1");
 
 }
