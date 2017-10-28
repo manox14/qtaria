@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
       timer = new QTimer(this);
       connect(timer, SIGNAL(timeout()), dl_handle, SLOT(update()));
       timer->start(1000);
-
+      //emit update();
 
 }
 
