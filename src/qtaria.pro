@@ -3,7 +3,7 @@
 # Project created by QtCreator 2017-10-18T22:31:26
 #
 #-------------------------------------------------
-CONFIG += static
+#CONFIG += static
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets websockets
@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    addnewdialog.cpp
+    addnewdialog.cpp \
+    ariawarapper.cpp
 
 HEADERS  += mainwindow.h \
-    addnewdialog.h
+    addnewdialog.h \
+    ariawarapper.h
 
 FORMS    += mainwindow.ui \
     addnewdialog.ui
@@ -36,4 +38,3 @@ FORMS    += mainwindow.ui \
 RESOURCES += \
     icon-pack.qrc
 LIBS += -L/usr/lib -laria2
-
