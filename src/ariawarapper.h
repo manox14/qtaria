@@ -11,7 +11,6 @@ class ariawarapper : public QObject
     Q_OBJECT
 public:
     explicit ariawarapper(QObject *parent=0);
-    void runInFrame();
     aria2::Session* session;
     aria2::SessionConfig config;
     std::vector<std::string> url;
