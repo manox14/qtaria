@@ -6,8 +6,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    aria2::libraryInit();
-
 
 }
 
@@ -21,4 +19,3 @@ void MainWindow::on_actionAddNew_triggered()
     newDialog = new addNewDialog;
     newDialog->show();
 }
-

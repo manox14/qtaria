@@ -35,4 +35,4 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     icon-pack.qrc
-LIBS += -L/usr/lib64 -laria2
+LIBS += -L/usr/lib -laria2
