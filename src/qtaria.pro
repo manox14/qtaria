@@ -3,7 +3,7 @@
 # Project created by QtCreator 2017-10-18T22:31:26
 #
 #-------------------------------------------------
-CONFIG += static
+#CONFIG += static
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets websockets
@@ -36,4 +36,3 @@ FORMS    += mainwindow.ui \
 RESOURCES += \
     icon-pack.qrc
 LIBS += -L/usr/lib64 -laria2
-
