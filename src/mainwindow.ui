@@ -32,11 +32,15 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>671</width>
-         <height>276</height>
+         <width>673</width>
+         <height>278</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout"/>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2"/>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -48,7 +52,7 @@
      <x>0</x>
      <y>0</y>
      <width>691</width>
-     <height>25</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
