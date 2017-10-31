@@ -36,7 +36,11 @@
          <height>289</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout"/>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2"/>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
