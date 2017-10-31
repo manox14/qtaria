@@ -5,11 +5,10 @@ ariawarapper::ariawarapper(QObject *parent)
     aria2::libraryInit();
     config.downloadEventCallback = downloadEventCallback;
     session = aria2::sessionNew(aria2::KeyVals(), config);
-    std::cout<<"constructor@ariawrapper";
     //http://localhost:8000/Desktop/Godot_v2.1.4-stable_x11.64
     //http://ipv4.download.thinkbroadband.com/5MB.zip
-    std::vector<std::string> url = {"http://ipv4.download.thinkbroadband.com/5MB.zip"};
-    int rv = aria2::addUri(session, nullptr, url, options);
+   // std::vector<std::string> url = {"http://ipv4.download.thinkbroadband.com/5MB.zip"};
+   // int rv = aria2::addUri(session, nullptr, url, options);
 }
 void ariawarapper::update()  {
     std::cout<<"onEVERY_TIMER";
@@ -63,7 +62,6 @@ void ariawarapper::addNewDownload(/*aria2::A2Gid *id,*/ QString url)
     std::cout<<"slot@aria";
     int rv = aria2::addUri(session, nullptr, urls, options);
       if(rv < 0) {
-        qDebug("Failed to INITIALIZE");
         std::cout<<"Failed";
       }
 }

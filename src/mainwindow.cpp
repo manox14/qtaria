@@ -6,20 +6,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
       ui->setupUi(this);
+
       dl_handle = new ariawarapper;
       dl_handle->moveToThread(&worker);
       worker.start();
+
       timer = new QTimer(this);
-      label = new QLabel(this); //just temp
-      label->setText("Hello form QT");
+      label = new QLabel(this);
 
       connect(timer, SIGNAL(timeout()), dl_handle, SLOT(update()));
       connect(dl_handle,&ariawarapper::globalDownloadStat,this,&MainWindow::globalDownloadStat);
       connect(dl_handle,&ariawarapper::dowlodStatPerItem,this,&MainWindow::dowlodStatPerItem);
       connect(this,&MainWindow::addNewDownload, dl_handle,&ariawarapper::addNewDownload);
-      timer->start(1000);
-      std::cout<<"Failed";
-      //emit update();
 
 }
 
@@ -34,7 +32,9 @@ void MainWindow::on_actionAddNew_triggered()
     //newDialog = new addNewDialog;
     //newDialog->show();
     QString url = "http://ipv4.download.thinkbroadband.com/5MB.zip";
+
     aria2::A2Gid id;
+    timer->start(1000);
     emit addNewDownload(/*&id,*/url);
 
 
