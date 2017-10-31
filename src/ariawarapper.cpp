@@ -8,7 +8,7 @@ ariawarapper::ariawarapper(QObject *parent)
     std::cout<<"constructor@ariawrapper";
     //http://localhost:8000/Desktop/Godot_v2.1.4-stable_x11.64
     //http://ipv4.download.thinkbroadband.com/5MB.zip
-    std::vector<std::string> url = {"http://localhost:8080/setup-1.bin"};
+    std::vector<std::string> url = {"http://ipv4.download.thinkbroadband.com/5MB.zip"};
     int rv = aria2::addUri(session, nullptr, url, options);
 }
 void ariawarapper::update()  {
@@ -36,7 +36,7 @@ void ariawarapper::update()  {
             aria2::DownloadHandle* dh = aria2::getDownloadHandle(session, gid);
             if (dh) {
               //int id = (int) gid;
-                emit dowlodStatPerItem(gid,dh->getCompletedLength(),dh->getTotalLength(),dh->getDownloadSpeed() / 1024,dh->getUploadSpeed() / 1024);
+                emit dowlodStatPerItem(gid,dh->getCompletedLength(),dh->getTotalLength(),dh->getDownloadSpeed()/1024,dh->getUploadSpeed() / 1024);
               std::cerr << "    [" << aria2::gidToHex(gid) << "] "
                         << dh->getCompletedLength() << "/" << dh->getTotalLength()
                         << "(" << (dh->getTotalLength() > 0
