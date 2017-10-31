@@ -15,6 +15,11 @@ public:
     explicit addNewDialog(QWidget *parent = 0);
     ~addNewDialog();
 
+private slots:
+    void on_addBtn_clicked();
+
+    void on_locationBtn_clicked();
+
 private:
     Ui::addNewDialog *ui;
 };
