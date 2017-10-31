@@ -47,8 +47,9 @@ void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)
 }
 void MainWindow::dowlodStatPerItem(int id, int completed, int total,int perDl, int perUp)
 {
-    QString message = QString("ID Downloaded:%2|%3 Speed D%4KB/s U%5KB/s").arg(completed).arg(total).arg(perDl).arg(perUp);
+    int percentage = (completed * 100) /total;
+    QString message = QString("ID Downloaded:%2|%3[ %6% ] Speed D%4KB/s U%5KB/s").arg(completed).arg(total).arg(perDl).arg(perUp).arg(percentage);
     label->setText(message);
     ui->verticalLayout_2->addWidget(label);
-    std::cerr<<"for love of world";
+    std::cerr<<percentage;
 }
