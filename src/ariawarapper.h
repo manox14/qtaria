@@ -18,7 +18,7 @@ public:
 
 signals:
     void globalDownloadStat(int inactive, int active, int gdl, int gup);
-    void dowlodStatPerItem(int id, int completed, int total,int perDl, int perUp);
+    void downloadStatPerItem(int id, int completed, int total,int perDl, int perUp);
 
 public slots:
     void update();

@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
       connect(timer, SIGNAL(timeout()), dl_handle, SLOT(update()));
       connect(dl_handle,&ariawarapper::globalDownloadStat,this,&MainWindow::globalDownloadStat);
-      connect(dl_handle,&ariawarapper::dowlodStatPerItem,this,&MainWindow::dowlodStatPerItem);
+      connect(dl_handle,&ariawarapper::downloadStatPerItem,this,&MainWindow::downloadStatPerItem);
       connect(this,&MainWindow::addNewDownload, dl_handle,&ariawarapper::addNewDownload);
 
 }
@@ -45,7 +45,7 @@ void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)
     QString message = QString("Inactive:%1 Active:%2 Speed down:%3KB/s up:%4KB/s").arg(inactive).arg(active).arg(gdl/1024).arg(gup/1024);
     statusBar()->showMessage(message);
 }
-void MainWindow::dowlodStatPerItem(int id, int completed, int total,int perDl, int perUp)
+void MainWindow::downloadStatPerItem(int id, int completed, int total,int perDl, int perUp)
 {
     int percentage = (completed * 100) /total;
     QString message = QString("ID Downloaded:%2|%3[ %6% ] Speed D%4KB/s U%5KB/s").arg(completed).arg(total).arg(perDl).arg(perUp).arg(percentage);

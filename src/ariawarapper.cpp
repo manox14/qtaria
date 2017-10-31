@@ -35,7 +35,7 @@ void ariawarapper::update()  {
             aria2::DownloadHandle* dh = aria2::getDownloadHandle(session, gid);
             if (dh) {
               //int id = (int) gid;
-                emit dowlodStatPerItem(gid,dh->getCompletedLength()/1024,dh->getTotalLength()/1024,dh->getDownloadSpeed()/1024,dh->getUploadSpeed() / 1024);
+                emit downloadStatPerItem(gid,dh->getCompletedLength()/1024,dh->getTotalLength()/1024,dh->getDownloadSpeed()/1024,dh->getUploadSpeed() / 1024);
               std::cerr << "    [" << aria2::gidToHex(gid) << "] "
                         << dh->getCompletedLength() << "/" << dh->getTotalLength()
                         << "(" << (dh->getTotalLength() > 0
