@@ -39,7 +39,7 @@ private:
     QLabel *label;
 public slots:
     void globalDownloadStat(int inactive, int active, int gdl, int gup);
-    void dowlodStatPerItem(int id, int completed, int total,int perDl, int perUp);
+    void dowlodStatPerItem(int id, int completed, int total,int perDl, int perUp); //update download progress to ui
 
 
 };
