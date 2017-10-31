@@ -3,7 +3,7 @@
 #include<aria2/aria2.h>
 #include <QObject>
 #include<iostream>
-
+#include<chrono>
 int downloadEventCallback(aria2::Session* session, aria2::DownloadEvent event, const aria2::A2Gid gid, void* userData);
 
 class ariawarapper : public QObject

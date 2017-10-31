@@ -38,3 +38,4 @@ FORMS    += mainwindow.ui \
 RESOURCES += \
     icon-pack.qrc
 LIBS += -L/usr/lib -laria2
+QMAKE_CXXFLAGS += -std=c++1y
