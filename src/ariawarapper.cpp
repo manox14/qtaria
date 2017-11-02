@@ -11,7 +11,6 @@ ariawarapper::ariawarapper(QObject *parent)
    // int rv = aria2::addUri(session, nullptr, url, options);
 }
 void ariawarapper::update()  {
-    std::cout<<"onEVERY_TIMER";
     auto start = std::chrono::steady_clock::now();
       for (;;) {
         int rv = aria2::run(session, aria2::RUN_ONCE);
@@ -60,7 +59,6 @@ void ariawarapper::addNewDownload(/*aria2::A2Gid *id,*/ QString url, QString loc
 
     std::vector<std::string> urls = {url.toStdString()};
     std::string dirlocation= {location.toStdString()};
-    std::cout<<"slot@aria";
     aria2::KeyVals options;
     options.push_back(std::pair<std::string, std::string> ("dir", dirlocation));
     options.push_back(std::pair<std::string, std::string> ("continue"),"true");
