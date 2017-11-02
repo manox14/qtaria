@@ -77,7 +77,7 @@
          </size>
         </property>
         <property name="text">
-         <string>File :</string>
+         <string>Location :</string>
         </property>
        </widget>
       </item>
