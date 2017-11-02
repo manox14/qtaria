@@ -50,6 +50,6 @@ void MainWindow::emitAddNewDownload(QString url,QString location)
 {
     //QString url = "http://ipv4.download.thinkbroadband.com/5MB.zip";
     aria2::A2Gid id;
-    emit addNewDownload(/*&id,*/url);
+    emit addNewDownload(/*&id,*/url, location);
     timer->start(100);
 }

@@ -55,27 +55,21 @@ void ariawarapper::update()  {
       //aria2::libraryDeinit();
 }
 
-void ariawarapper::addNewDownload(/*aria2::A2Gid *id,*/ QString url)
+void ariawarapper::addNewDownload(/*aria2::A2Gid *id,*/ QString url, QString location)
 {
 
     std::vector<std::string> urls = {url.toStdString()};
+    std::string dirlocation= {location.toStdString()};
     std::cout<<"slot@aria";
+    aria2::KeyVals options;
+    options.push_back(std::pair<std::string, std::string> ("dir", dirlocation));
     int rv = aria2::addUri(session, nullptr, urls, options);
       if(rv < 0) {
         std::cout<<"Failed";
       }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 int downloadEventCallback(aria2::Session* session, aria2::DownloadEvent event,

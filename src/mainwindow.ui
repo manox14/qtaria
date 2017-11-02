@@ -33,7 +33,7 @@
          <x>0</x>
          <y>0</y>
          <width>671</width>
-         <height>289</height>
+         <height>282</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -52,13 +52,14 @@
      <x>0</x>
      <y>0</y>
      <width>691</width>
-     <height>19</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionAdd_from_URL"/>
     <addaction name="actionAddNew"/>
     <addaction name="actionExit"/>
    </widget>
@@ -164,18 +165,33 @@
    </property>
   </action>
   <action name="actionAddNew">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="icon-pack.qrc">
      <normaloff>:/icons/icons/add-logo.svg</normaloff>:/icons/icons/add-logo.svg</iconset>
    </property>
    <property name="text">
-    <string>Add New</string>
+    <string>Add .torrent</string>
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add New&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
    <property name="shortcut">
-    <string>Ctrl+N</string>
+    <string>Ctrl+O</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::ApplicationSpecificRole</enum>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
    </property>
   </action>
   <action name="actionResumeAll">
@@ -216,6 +232,18 @@
    </property>
    <property name="shortcut">
     <string>Del</string>
+   </property>
+  </action>
+  <action name="actionAdd_from_URL">
+   <property name="icon">
+    <iconset resource="icon-pack.qrc">
+     <normaloff>:/icons/icons/add-logo.svg</normaloff>:/icons/icons/add-logo.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Add from URL</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
  </widget>

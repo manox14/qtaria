@@ -25,8 +25,10 @@ void addNewDialog::on_addBtn_clicked()
 
 void addNewDialog::on_locationBtn_clicked()
 {
-    QString saveLocation = QFileDialog::getSaveFileName(this,
-            tr("Save Location"), "",
-            tr("All Files (*)"));
+    QString saveLocation = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+                                                             "",
+                                                             QFileDialog::ShowDirsOnly
+                                                             | QFileDialog::DontResolveSymlinks
+                                                             );
     ui->locationBox->setText(saveLocation);
 }

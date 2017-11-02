@@ -22,7 +22,7 @@ class MainWindow : public QMainWindow
 signals:
     void operate();
     void opdate();
-    void addNewDownload(/*aria2::A2Gid *id,*/ QString url);
+    void addNewDownload(/*aria2::A2Gid *id,*/ QString url, QString location);
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();

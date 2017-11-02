@@ -22,7 +22,7 @@ signals:
 
 public slots:
     void update();
-    void addNewDownload(/*aria2::A2Gid *id,*/ QString url);
+    void addNewDownload(/*aria2::A2Gid *id,*/ QString url, QString location);
 };
 
 #endif // ARIAWARAPPER_H
