@@ -30,7 +30,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionAddNew_triggered()
 {
     newDialog = new addNewDialog(this);
-    newDialog->exec();
+    newDialog->show();
 
 }
 void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)

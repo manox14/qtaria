@@ -185,5 +185,21 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>addBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>addNewDialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>269</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>225</x>
+     <y>114</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
 </ui>
