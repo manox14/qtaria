@@ -11,11 +11,10 @@
 #include "addnewdialog.h"
 #include "ariawarapper.h"
 #include <aria2/aria2.h>
-
+class addNewDialog;
 namespace Ui {
 class MainWindow;
 }
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -27,6 +26,7 @@ signals:
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void emitAddNewDownload(QString url,QString location);
 
 private slots:
     void on_actionAddNew_triggered();

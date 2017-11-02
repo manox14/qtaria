@@ -2,7 +2,8 @@
 #define ADDNEWDIALOG_H
 
 #include <QDialog>
-
+#include "mainwindow.h"
+class MainWindow;
 namespace Ui {
 class addNewDialog;
 }
@@ -22,6 +23,7 @@ private slots:
 
 private:
     Ui::addNewDialog *ui;
+    MainWindow *p;
 };
 
 #endif // ADDNEWDIALOG_H

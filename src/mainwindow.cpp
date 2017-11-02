@@ -29,15 +29,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionAddNew_triggered()
 {
-    //newDialog = new addNewDialog;
-    //newDialog->show();
-    QString url = "http://ipv4.download.thinkbroadband.com/5MB.zip";
-
-    aria2::A2Gid id;
-    timer->start(1000);
-    emit addNewDownload(/*&id,*/url);
-
-
+    newDialog = new addNewDialog(this);
+    newDialog->exec();
 
 }
 void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)
@@ -52,4 +45,11 @@ void MainWindow::downloadStatPerItem(int id, int completed, int total,int perDl,
     label->setText(message);
     ui->verticalLayout_2->addWidget(label);
     std::cerr<<percentage;
+}
+void MainWindow::emitAddNewDownload(QString url,QString location)
+{
+    //QString url = "http://ipv4.download.thinkbroadband.com/5MB.zip";
+    aria2::A2Gid id;
+    emit addNewDownload(/*&id,*/url);
+    timer->start(100);
 }
