@@ -61,15 +61,12 @@ void ariawarapper::addNewDownload(/*aria2::A2Gid *id,*/ QString url, QString loc
     std::string dirlocation= {location.toStdString()};
     aria2::KeyVals options;
     options.push_back(std::pair<std::string, std::string> ("dir", dirlocation));
-    options.push_back(std::pair<std::string, std::string> ("continue"),"true");
+    options.push_back(std::pair<std::string, std::string> ("continue","true"));
         int rv = aria2::addUri(session, nullptr, urls, options);
       if(rv < 0) {
         std::cout<<"Failed";
       }
-
-
 }
-
 
 int downloadEventCallback(aria2::Session* session, aria2::DownloadEvent event,
                           const aria2::A2Gid gid, void* userData)
