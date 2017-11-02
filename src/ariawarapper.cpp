@@ -1,7 +1,10 @@
 #include "ariawarapper.h"
+int status;
+
 ariawarapper::ariawarapper(QObject *parent)
     :QObject(parent)
 {
+
     aria2::libraryInit();
     config.downloadEventCallback = downloadEventCallback;
     session = aria2::sessionNew(aria2::KeyVals(), config);
@@ -11,6 +14,7 @@ ariawarapper::ariawarapper(QObject *parent)
    // int rv = aria2::addUri(session, nullptr, url, options);
 }
 void ariawarapper::update()  {
+
     auto start = std::chrono::steady_clock::now();
       for (;;) {
         int rv = aria2::run(session, aria2::RUN_ONCE);
@@ -33,7 +37,7 @@ void ariawarapper::update()  {
           for (const auto& gid : gids) {
             aria2::DownloadHandle* dh = aria2::getDownloadHandle(session, gid);
             if (dh) {
-              //int id = (int) gid;
+              int id = (int) gid;
                 emit downloadStatPerItem(gid,dh->getCompletedLength()/1024,dh->getTotalLength()/1024,dh->getDownloadSpeed()/1024,dh->getUploadSpeed() / 1024);
               std::cerr << "    [" << aria2::gidToHex(gid) << "] "
                         << dh->getCompletedLength() << "/" << dh->getTotalLength()
@@ -54,14 +58,14 @@ void ariawarapper::update()  {
       //aria2::libraryDeinit();
 }
 
-void ariawarapper::addNewDownload(/*aria2::A2Gid *id,*/ QString url, QString location)
+void ariawarapper::addNewDownload(aria2::A2Gid *id, QString url, QString location)
 {
 
     std::vector<std::string> urls = {url.toStdString()};
     std::string dirlocation= {location.toStdString()};
     aria2::KeyVals options;
-    options.push_back(std::pair<std::string, std::string> ("dir", dirlocation));
-    options.push_back(std::pair<std::string, std::string> ("continue","true"));
+    options.push_back(std::pair<std::string, std::string> ("dir", dirlocation=""));
+    options.push_back(std::pair<std::string, std::string> ("continue","false"));
         int rv = aria2::addUri(session, nullptr, urls, options);
       if(rv < 0) {
         std::cout<<"Failed";
@@ -71,7 +75,7 @@ void ariawarapper::addNewDownload(/*aria2::A2Gid *id,*/ QString url, QString loc
 int downloadEventCallback(aria2::Session* session, aria2::DownloadEvent event,
                           const aria2::A2Gid gid, void* userData)
 {
-  switch(event) {
+ switch(event) {
   case aria2::EVENT_ON_DOWNLOAD_COMPLETE:
     std::cerr << "COMPLETE";
     break;

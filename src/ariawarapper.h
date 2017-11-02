@@ -4,6 +4,7 @@
 #include <QObject>
 #include<iostream>
 #include<chrono>
+
 int downloadEventCallback(aria2::Session* session, aria2::DownloadEvent event, const aria2::A2Gid gid, void* userData);
 
 class ariawarapper : public QObject
@@ -22,7 +23,10 @@ signals:
 
 public slots:
     void update();
-    void addNewDownload(/*aria2::A2Gid *id,*/ QString url, QString location);
+    void addNewDownload(aria2::A2Gid *id,QString url, QString location);
+
+private:
+
 };
 
 #endif // ARIAWARAPPER_H

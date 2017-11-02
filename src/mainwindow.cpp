@@ -41,16 +41,19 @@ void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)
 void MainWindow::downloadStatPerItem(int id, int completed, int total,int perDl, int perUp)
 {
     int percentage = (completed * 100) /total;
-    QString message = QString("ID Downloaded:%2|%3[ %6% ] Speed D%4KB/s U%5KB/s").arg(completed).arg(total).arg(perDl).arg(perUp).arg(percentage);
+
+    QString message = QString("ID %1 Downloaded:%2|%3[ %6% ] Speed D%4KB/s U%5KB/s").arg(id).arg(completed).arg(total).arg(perDl).arg(perUp).arg(percentage);
     ui->Status->setText(message);
-    std::cerr<<percentage;
+   // std::cerr<<percentage;
+   //std::cerr<< ;
 }
 void MainWindow::emitAddNewDownload(QString url,QString location)
 {
     //QString url = "http://ipv4.download.thinkbroadband.com/5MB.zip";
     aria2::A2Gid id;
-    emit addNewDownload(/*&id,*/url, location);
+    emit addNewDownload(&id,url, location);
     timer->start(100);
     ui->FileLocation->setText(location);
+    ui->urlBox->setText(url);
 
 }

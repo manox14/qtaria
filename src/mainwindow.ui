@@ -58,7 +58,7 @@
             <rect>
              <x>20</x>
              <y>50</y>
-             <width>441</width>
+             <width>501</width>
              <height>17</height>
             </rect>
            </property>
@@ -105,7 +105,7 @@
             <string>Status</string>
            </property>
           </widget>
-          <widget class="QLabel" name="filename_label">
+          <widget class="QLabel" name="url_label">
            <property name="geometry">
             <rect>
              <x>20</x>
@@ -115,10 +115,10 @@
             </rect>
            </property>
            <property name="text">
-            <string>Filename :</string>
+            <string>Source:</string>
            </property>
           </widget>
-          <widget class="QLabel" name="fileName">
+          <widget class="QLabel" name="urlBox">
            <property name="geometry">
             <rect>
              <x>120</x>
@@ -128,7 +128,7 @@
             </rect>
            </property>
            <property name="text">
-            <string>fileName</string>
+            <string/>
            </property>
           </widget>
          </widget>
