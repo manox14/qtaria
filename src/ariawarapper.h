@@ -19,11 +19,12 @@ public:
 
 signals:
     void globalDownloadStat(int inactive, int active, int gdl, int gup);
-    void downloadStatPerItem(int id, int completed, int total,int perDl, int perUp);
+    void downloadStatPerItem(uint id, int completed, int total,int perDl, int perUp);
+    void finishAddNew(uint fid);
 
 public slots:
     void update();
-    void addNewDownload(aria2::A2Gid *id,QString url, QString location);
+    void addNewDownload(QString url, QString location);
 
 private:
 
