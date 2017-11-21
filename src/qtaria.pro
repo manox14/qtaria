@@ -39,3 +39,8 @@ RESOURCES += \
     icon-pack.qrc
 LIBS += -L/usr/lib -laria2
 QMAKE_CXXFLAGS += -std=c++1y
+
+unix:!macx: LIBS += -L$$PWD/lib/ -laria2
+
+INCLUDEPATH += $$PWD/.
+DEPENDPATH += $$PWD/.
