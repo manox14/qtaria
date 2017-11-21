@@ -16,7 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
       connect(timer, SIGNAL(timeout()), dl_handle, SLOT(update()));
       connect(dl_handle,&ariawarapper::globalDownloadStat,this,&MainWindow::globalDownloadStat);
-      connect(dl_handle,&ariawarapper::downloadStatPerItem,this,&MainWindow::downloadStatPerItem);
+      connect(dl_handle,&ariawarapper::downloadStatPerItem,this,&MainWindow::downloadStatPerItem,Qt::BlockingQueuedConnection);
+      connect(dl_handle,&ariawarapper::finishAddNew,this,&MainWindow::finishAddNew);
       connect(this,&MainWindow::addNewDownload, dl_handle,&ariawarapper::addNewDownload);
 
 }
@@ -38,22 +39,38 @@ void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)
     QString message = QString("Inactive:%1 Active:%2 Speed down:%3KB/s up:%4KB/s").arg(inactive).arg(active).arg(gdl/1024).arg(gup/1024);
     statusBar()->showMessage(message);
 }
-void MainWindow::downloadStatPerItem(int id, int completed, int total,int perDl, int perUp)
+void MainWindow::downloadStatPerItem(uint id, int completed, int total,int perDl, int perUp)
 {
-    int percentage = (completed * 100) /total;
-
+    QPushButton * tpb = dlList.value(id); //take out one button from list
+    uint c = (uint)completed;
+    uint t = (uint)total;
+    uint percentage = (c * 100) /t;
     QString message = QString("ID %1 Downloaded:%2|%3[ %6% ] Speed D%4KB/s U%5KB/s").arg(id).arg(completed).arg(total).arg(perDl).arg(perUp).arg(percentage);
     ui->Status->setText(message);
-   // std::cerr<<percentage;
-   //std::cerr<< ;
+    tpb->setText(message);
 }
 void MainWindow::emitAddNewDownload(QString url,QString location)
 {
-    //QString url = "http://ipv4.download.thinkbroadband.com/5MB.zip";
-    aria2::A2Gid id;
-    emit addNewDownload(&id,url, location);
+    //        http://speed.hetzner.de/100MB.bin
+    //QString url = "  http://ipv4.download.thinkbroadband.com/5MB.zip  ";
+
+    std::cout<<"@emitaddnew23";
     timer->start(100);
     ui->FileLocation->setText(location);
     ui->urlBox->setText(url);
-
+    //emit addNewDownload(url, location);
+    dl_handle->addNewDownload(url, location);
+}
+void MainWindow::finishAddNew(uint fid)
+{
+    std::cout<<"works here!!";
+    if (fid == 0) {
+        std::cout<<"ERRORRRRRRR!!";
+        //error adding
+        return;
+    }
+    dlList.insert(fid, new QPushButton(this));
+    QPushButton * tpb = dlList.value(fid);
+    tpb->setText(QString(fid));
+    ui->gridLayout_3->addWidget(tpb);
 }

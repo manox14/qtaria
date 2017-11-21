@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QThread>
+#include <QPushButton>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QMap>
@@ -22,7 +23,7 @@ class MainWindow : public QMainWindow
 signals:
     void operate();
     void opdate();
-    void addNewDownload(aria2::A2Gid *id, QString url, QString location);
+    void addNewDownload( QString url, QString location);
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -35,12 +36,14 @@ private:
     addNewDialog *newDialog;
     ariawarapper *dl_handle;
     QTimer *timer;
-    QMap<uint, QLabel> dlownloadList;
+    QMap<uint, QPushButton*> dlList;
     QLabel *label;
 public slots:
     void globalDownloadStat(int inactive, int active, int gdl, int gup);
-    void downloadStatPerItem(int id, int completed, int total,int perDl, int perUp); //update download progress to ui
-
+    void downloadStatPerItem(uint id, int completed, int total,int perDl, int perUp); //update download progress to ui
+    void finishAddNew(uint fid);
+    //we are using uint because its closest to aria2::A2Gid and valid for Qmeta stuff
+    //do't know it can hod A2Gid value without overflow
 
 };
 
