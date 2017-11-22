@@ -42,9 +42,8 @@ void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)
 void MainWindow::downloadStatPerItem(uint id, int completed, int total,int perDl, int perUp)
 {
     objectHolder * temp_objh = dlList.value(id); //take out one item from list
-    uint c = (uint)completed;
-    uint t = (uint)total;
-    float percentage = 0; //(c - (c%t) ) * 100 / t;
+    if(total == 0) { return; }
+    int percentage = completed * 100 / total;
     //fuck you arthemetic error__asm__[volatile]("mul ":"=r"(percentage):)
     QString message = QString("ID %1 Downloaded:%2|%3[ %6% ] Speed D%4KB/s U%5KB/s").arg(id).arg(completed).arg(total).arg(perDl).arg(perUp).arg(percentage);
     //ui->Status->setText(message);
