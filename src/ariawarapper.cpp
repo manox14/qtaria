@@ -8,10 +8,6 @@ ariawarapper::ariawarapper(QObject *parent)
     aria2::libraryInit();
     config.downloadEventCallback = downloadEventCallback;
     session = aria2::sessionNew(aria2::KeyVals(), config);
-    //http://localhost:8000/Desktop/Godot_v2.1.4-stable_x11.64
-    //http://ipv4.download.thinkbroadband.com/5MB.zip
-   // std::vector<std::string> url = {"http://ipv4.download.thinkbroadband.com/5MB.zip"};
-   // int rv = aria2::addUri(session, nullptr, url, options);
 }
 void ariawarapper::update()  {
 
