@@ -41,13 +41,15 @@ void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)
 }
 void MainWindow::downloadStatPerItem(uint id, int completed, int total,int perDl, int perUp)
 {
-    QPushButton * tpb = dlList.value(id); //take out one button from list
+    objectHolder * temp_objh = dlList.value(id); //take out one item from list
     uint c = (uint)completed;
     uint t = (uint)total;
-    uint percentage = (c * 100) /t;
+    float percentage = 0; //(c - (c%t) ) * 100 / t;
+    //fuck you arthemetic error__asm__[volatile]("mul ":"=r"(percentage):)
     QString message = QString("ID %1 Downloaded:%2|%3[ %6% ] Speed D%4KB/s U%5KB/s").arg(id).arg(completed).arg(total).arg(perDl).arg(perUp).arg(percentage);
-    ui->Status->setText(message);
-    tpb->setText(message);
+    //ui->Status->setText(message);
+
+    temp_objh->info->setText(message);
 }
 void MainWindow::emitAddNewDownload(QString url,QString location)
 {
@@ -56,8 +58,8 @@ void MainWindow::emitAddNewDownload(QString url,QString location)
 
     std::cout<<"@emitaddnew23";
     timer->start(100);
-    ui->FileLocation->setText(location);
-    ui->urlBox->setText(url);
+    //ui->FileLocation->setText(location);
+    //ui->urlBox->setText(url);
     //emit addNewDownload(url, location);
     dl_handle->addNewDownload(url, location);
 }
@@ -69,8 +71,16 @@ void MainWindow::finishAddNew(uint fid)
         //error adding
         return;
     }
-    dlList.insert(fid, new QPushButton(this));
-    QPushButton * tpb = dlList.value(fid);
-    tpb->setText(QString(fid));
-    ui->gridLayout_3->addWidget(tpb);
+
+    dlList.insert(fid, new objectHolder(this));
+    objectHolder * temp_objh = dlList.value(fid);
+    temp_objh->play_btn->setText(QString("Play bitch"));
+    temp_objh->info->setText(QString("OK! i will download"));
+    temp_objh->holder->setSpacing(0);
+    temp_objh->holder->setMargin(0);
+    temp_objh->holder->addWidget(temp_objh->info);
+    temp_objh->holder->addWidget(temp_objh->play_btn);
+    temp_objh->groupw->setLayout(temp_objh->holder);
+
+    ui->verticalLayout->addWidget(temp_objh->groupw);
 }
