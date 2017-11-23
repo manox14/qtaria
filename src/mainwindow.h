@@ -10,6 +10,7 @@
 #include <QHBoxLayout>
 #include <QMap>
 #include <QWidget>
+#include<QList>
 #include <iostream>
 #include "addnewdialog.h"
 #include "ariawarapper.h"
@@ -41,6 +42,7 @@ private:
     QTimer *timer;
     QLabel *label;
     QMap<uint, objectHolder*> dlList;
+    QList<objectHolder*> list_of_objholder;
 public slots:
     void globalDownloadStat(int inactive, int active, int gdl, int gup);
     void downloadStatPerItem(uint id, int completed, int total,int perDl, int perUp); //update download progress to ui

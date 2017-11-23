@@ -19,6 +19,11 @@ MainWindow::MainWindow(QWidget *parent) :
       connect(dl_handle,&ariawarapper::downloadStatPerItem,this,&MainWindow::downloadStatPerItem,Qt::BlockingQueuedConnection);
       connect(dl_handle,&ariawarapper::finishAddNew,this,&MainWindow::finishAddNew);
       connect(this,&MainWindow::addNewDownload, dl_handle,&ariawarapper::addNewDownload);
+      for(int i = 0; i<10; i++) {
+          objectHolder * temp_objh = new objectHolder(this);
+          ui->verticalLayout_4->addWidget(temp_objh->groupw,0,Qt::AlignTop);
+          list_of_objholder.prepend(temp_objh);
+      }
 
 }
 
@@ -64,14 +69,20 @@ void MainWindow::emitAddNewDownload(QString url,QString location)
 }
 void MainWindow::finishAddNew(uint fid)
 {
-    std::cout<<"works here!!";
+
     if (fid == 0) {
-        std::cout<<"ERRORRRRRRR!!";
-        //error adding
+        std::cout<<"error";
         return;
     }
+    objectHolder * temp_objh;
+    if(list_of_objholder.isEmpty()) {
+        dlList.insert(fid, new objectHolder(this));
+        temp_objh = dlList.value(fid);
+        ui->verticalLayout_4->addWidget(temp_objh->groupw,0,Qt::AlignTop);
+    } else {
+        temp_objh = list_of_objholder.takeLast();
+        dlList.insert(fid, temp_objh);
+    }
+    temp_objh->activate();
 
-    dlList.insert(fid, new objectHolder(this));
-    objectHolder * temp_objh = dlList.value(fid);
-    ui->verticalLayout_4->addWidget(temp_objh->groupw,0,Qt::AlignTop);
 }
