@@ -19,6 +19,11 @@ MainWindow::MainWindow(QWidget *parent) :
       connect(dl_handle,&ariawarapper::downloadStatPerItem,this,&MainWindow::downloadStatPerItem,Qt::BlockingQueuedConnection);
       connect(dl_handle,&ariawarapper::finishAddNew,this,&MainWindow::finishAddNew);
       connect(this,&MainWindow::addNewDownload, dl_handle,&ariawarapper::addNewDownload);
+      for(int i = 0; i<10; i++) {
+          objectHolder * temp_objh = new objectHolder(this);
+          ui->verticalLayout_4->addWidget(temp_objh->groupw,0,Qt::AlignTop);
+          list_of_objholder.prepend(temp_objh);
+      }
 
 }
 
@@ -42,9 +47,8 @@ void MainWindow::globalDownloadStat(int inactive, int active, int gdl, int gup)
 void MainWindow::downloadStatPerItem(uint id, int completed, int total,int perDl, int perUp)
 {
     objectHolder * temp_objh = dlList.value(id); //take out one item from list
-    uint c = (uint)completed;
-    uint t = (uint)total;
-    float percentage = 0; //(c - (c%t) ) * 100 / t;
+    if(total == 0) { return; }
+    int percentage = completed * 100 / total;
     //fuck you arthemetic error__asm__[volatile]("mul ":"=r"(percentage):)
     QString message = QString("ID %1 Downloaded:%2|%3[ %6% ] Speed D%4KB/s U%5KB/s").arg(id).arg(completed).arg(total).arg(perDl).arg(perUp).arg(percentage);
     //ui->Status->setText(message);
@@ -65,22 +69,20 @@ void MainWindow::emitAddNewDownload(QString url,QString location)
 }
 void MainWindow::finishAddNew(uint fid)
 {
-    std::cout<<"works here!!";
+
     if (fid == 0) {
-        std::cout<<"ERRORRRRRRR!!";
-        //error adding
+        std::cout<<"error";
         return;
     }
+    objectHolder * temp_objh;
+    if(list_of_objholder.isEmpty()) {
+        dlList.insert(fid, new objectHolder(this));
+        temp_objh = dlList.value(fid);
+        ui->verticalLayout_4->addWidget(temp_objh->groupw,0,Qt::AlignTop);
+    } else {
+        temp_objh = list_of_objholder.takeLast();
+        dlList.insert(fid, temp_objh);
+    }
+    temp_objh->activate();
 
-    dlList.insert(fid, new objectHolder(this));
-    objectHolder * temp_objh = dlList.value(fid);
-    temp_objh->play_btn->setText(QString("Play bitch"));
-    temp_objh->info->setText(QString("OK! i will download"));
-    temp_objh->holder->setSpacing(0);
-    temp_objh->holder->setMargin(0);
-    temp_objh->holder->addWidget(temp_objh->info);
-    temp_objh->holder->addWidget(temp_objh->play_btn);
-    temp_objh->groupw->setLayout(temp_objh->holder);
-
-    ui->verticalLayout->addWidget(temp_objh->groupw);
 }

@@ -26,11 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     addnewdialog.cpp \
-    ariawarapper.cpp
+    ariawarapper.cpp \
+    objectholder.cpp
 
 HEADERS  += mainwindow.h \
     addnewdialog.h \
-    ariawarapper.h
+    ariawarapper.h \
+    objectholder.h
 
 FORMS    += mainwindow.ui \
     addnewdialog.ui

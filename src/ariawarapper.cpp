@@ -57,7 +57,7 @@ void ariawarapper::update()  {
 void ariawarapper::addNewDownload( QString url, QString location)
 {
 
-    std::cout<<"@ariawrapper/addnewDownload/99-----------";
+   // std::cout<<"@ariawrapper/addnewDownload/99-----------";
     std::vector<std::string> urls = {url.toStdString()};
     std::string dirlocation= {location.toStdString()};
     aria2::KeyVals options;

@@ -7,13 +7,15 @@
 #include <QPushButton>
 #include <QFrame>
 #include <QLabel>
-#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QMap>
 #include <QWidget>
+#include<QList>
 #include <iostream>
 #include "addnewdialog.h"
 #include "ariawarapper.h"
 #include <aria2/aria2.h>
+#include "objectholder.h"
 class addNewDialog;
 namespace Ui {
 class MainWindow;
@@ -39,20 +41,8 @@ private:
     ariawarapper *dl_handle;
     QTimer *timer;
     QLabel *label;
-    struct objectHolder
-    {
-        QVBoxLayout *holder;
-        QWidget *groupw;
-        QLabel *info;
-        QPushButton *play_btn;
-        objectHolder(QWidget * parent) {
-            holder = new QVBoxLayout(parent);
-            info = new QLabel(parent);
-            play_btn = new QPushButton(parent);
-            groupw = new QWidget(parent);
-        }
-    };
     QMap<uint, objectHolder*> dlList;
+    QList<objectHolder*> list_of_objholder;
 public slots:
     void globalDownloadStat(int inactive, int active, int gdl, int gup);
     void downloadStatPerItem(uint id, int completed, int total,int perDl, int perUp); //update download progress to ui
