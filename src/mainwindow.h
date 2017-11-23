@@ -14,6 +14,7 @@
 #include "addnewdialog.h"
 #include "ariawarapper.h"
 #include <aria2/aria2.h>
+#include "objectholder.h"
 class addNewDialog;
 namespace Ui {
 class MainWindow;
@@ -39,21 +40,6 @@ private:
     ariawarapper *dl_handle;
     QTimer *timer;
     QLabel *label;
-    struct objectHolder
-    {
-        QHBoxLayout *holder;
-        QWidget *groupw;
-        QLabel *info;
-        QPushButton *play_btn;
-        objectHolder(QWidget * parent) {
-            holder = new QHBoxLayout(parent);
-            info = new QLabel(parent);
-            play_btn = new QPushButton(parent);
-            groupw = new QWidget(parent);
-            groupw->setGeometry(0,0,10,40);
-            groupw->setStyleSheet("background-color:black;");
-        }
-    };
     QMap<uint, objectHolder*> dlList;
 public slots:
     void globalDownloadStat(int inactive, int active, int gdl, int gup);

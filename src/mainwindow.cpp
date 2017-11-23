@@ -73,14 +73,5 @@ void MainWindow::finishAddNew(uint fid)
 
     dlList.insert(fid, new objectHolder(this));
     objectHolder * temp_objh = dlList.value(fid);
-    temp_objh->play_btn->setText(QString("Play bitch"));
-    temp_objh->info->setText(QString("OK! i will download"));
-//    temp_objh->holder->setSpacing(0);
-//    temp_objh->holder->setMargin(0);
-    temp_objh->holder->addWidget(temp_objh->info);
-    temp_objh->holder->addSpacerItem(new QSpacerItem(10,10,QSizePolicy::Expanding));
-    temp_objh->holder->addWidget(temp_objh->play_btn);
-    temp_objh->groupw->setLayout(temp_objh->holder);
-
     ui->verticalLayout_4->addWidget(temp_objh->groupw,0,Qt::AlignTop);
 }
