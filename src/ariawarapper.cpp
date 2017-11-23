@@ -1,6 +1,6 @@
 #include "ariawarapper.h"
 int status;
-
+ariawarapper *me;
 ariawarapper::ariawarapper(QObject *parent)
     :QObject(parent)
 {
@@ -8,6 +8,7 @@ ariawarapper::ariawarapper(QObject *parent)
     aria2::libraryInit();
     config.downloadEventCallback = downloadEventCallback;
     session = aria2::sessionNew(aria2::KeyVals(), config);
+    me = this;
 }
 void ariawarapper::update()  {
 
@@ -35,16 +36,16 @@ void ariawarapper::update()  {
             if (dh) {
               uint id = gid;
                 emit downloadStatPerItem(gid,dh->getCompletedLength()/1024,dh->getTotalLength()/1024,dh->getDownloadSpeed()/1024,dh->getUploadSpeed() / 1024);
-              std::cerr << "    [" << aria2::gidToHex(gid) << "] "
-                        << dh->getCompletedLength() << "/" << dh->getTotalLength()
-                        << "(" << (dh->getTotalLength() > 0
-                                       ? (100 * dh->getCompletedLength() /
-                                          dh->getTotalLength())
-                                       : 0)
-                        << "%)"
-                        << " D:" << dh->getDownloadSpeed() / 1024
-                        << "KiB/s, U:" << dh->getUploadSpeed() / 1024 << "KiB/s"
-                        << std::endl;
+              //std::cerr << "    [" << aria2::gidToHex(gid) << "] "
+              //         << dh->getCompletedLength() << "/" << dh->getTotalLength()
+              //         << "(" << (dh->getTotalLength() > 0
+              //                      ? (100 * dh->getCompletedLength() /
+              //                           dh->getTotalLength())
+              //                        : 0)
+              //          << "%)"
+              //          << " D:" << dh->getDownloadSpeed() / 1024
+              //          << "KiB/s, U:" << dh->getUploadSpeed() / 1024 << "KiB/s"
+              //          << std::endl;
               //aria2::deleteDownloadHandle(dh);
             }
           }
@@ -71,20 +72,27 @@ void ariawarapper::addNewDownload( QString url, QString location)
         std::cout<<"Failed";
       }
       emit finishAddNew(fid);
-    std::cout<<"@ariawrapper/addnewDownload";
+    //std::cout<<"@ariawrapper/addnewDownload";
 }
 
 int downloadEventCallback(aria2::Session* session, aria2::DownloadEvent event,
                           const aria2::A2Gid gid, void* userData)
 {
+ uint id = gid; //A2Gid is not Qtmetobject so
  switch(event) {
   case aria2::EVENT_ON_DOWNLOAD_COMPLETE:
-    std::cerr << "COMPLETE";
-    break;
+ {
+     std::cerr << "COMPLETE";
+     me->downloadStatPerItem(id,0,-2,0,0);
+     break;
+ }
   case aria2::EVENT_ON_DOWNLOAD_ERROR:
-    std::cerr << "ERROR";
-    break;
-  default:
+ {
+     std::cerr << "ERROR";
+     me->downloadStatPerItem(id,0,-1,0,0);
+     break;
+ }
+ default:
     return 0;
   }
   std::cerr << " [" << aria2::gidToHex(gid) << "] ";
