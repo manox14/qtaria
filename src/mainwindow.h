@@ -7,7 +7,7 @@
 #include <QPushButton>
 #include <QFrame>
 #include <QLabel>
-#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QMap>
 #include <QWidget>
 #include <iostream>
@@ -41,15 +41,17 @@ private:
     QLabel *label;
     struct objectHolder
     {
-        QVBoxLayout *holder;
+        QHBoxLayout *holder;
         QWidget *groupw;
         QLabel *info;
         QPushButton *play_btn;
         objectHolder(QWidget * parent) {
-            holder = new QVBoxLayout(parent);
+            holder = new QHBoxLayout(parent);
             info = new QLabel(parent);
             play_btn = new QPushButton(parent);
             groupw = new QWidget(parent);
+            groupw->setGeometry(0,0,10,40);
+            groupw->setStyleSheet("background-color:black;");
         }
     };
     QMap<uint, objectHolder*> dlList;
