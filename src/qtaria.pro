@@ -3,10 +3,10 @@
 # Project created by QtCreator 2017-10-18T22:31:26
 #
 #-------------------------------------------------
-
+#CONFIG += static
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets websockets
 
 TARGET = qtaria
 TEMPLATE = app
@@ -25,13 +25,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    addnewdialog.cpp
+    addnewdialog.cpp \
+    ariawarapper.cpp \
+    objectholder.cpp
 
 HEADERS  += mainwindow.h \
-    addnewdialog.h
+    addnewdialog.h \
+    ariawarapper.h \
+    objectholder.h
 
 FORMS    += mainwindow.ui \
     addnewdialog.ui
 
 RESOURCES += \
     icon-pack.qrc
+LIBS += -L/usr/lib -laria2
+QMAKE_CXXFLAGS += -std=c++1y
+
+unix:!macx: LIBS += -L$$PWD/lib/ -laria2
+
+INCLUDEPATH += $$PWD/.
+DEPENDPATH += $$PWD/.
